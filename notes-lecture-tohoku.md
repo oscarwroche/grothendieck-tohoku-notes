@@ -4,7 +4,7 @@ Source : Alexandre Grothendieck, *Sur quelques points d’algèbre homologique*,
 
 **Pour lire avec les formules affichées :** ouvrir ce fichier dans Visual Studio Code, puis utiliser **⇧⌘V** (aperçu Markdown) ou **⌘K V** (aperçu à côté du texte). L’aperçu intégré rend les formules `$...$` et `$$...$$` ; cliquer sur le titre d’un passage repliable pour l’ouvrir. Garder ce fichier et le PDF source dans le même dossier maintient leur lien.
 
-Ces notes suivent **l’ordre du texte**. Dans chaque passage, **Papier** résume ce que Grothendieck définit ou affirme ; **Intuition** reformule l’idée ; **Exemple**, **Aluffi/Hatcher** et **Digression discutée** ajoutent ce qui a été travaillé ensemble. Une digression peut annoncer une notion bien postérieure à §1.1 : elle ne doit pas être prise pour une affirmation du paragraphe. Les exemples longs sont repliables.
+La lecture principale suit **l’ordre du texte** ; les [annexes](#annexes) rassemblent par thème nos développements et les exercices. Dans chaque passage, **Papier** résume ce que Grothendieck définit ou affirme ; **Intuition** reformule l’idée ; **Exemple**, **Aluffi/Hatcher** et **Digression discutée** ajoutent ce qui a été travaillé ensemble. Une digression peut annoncer une notion bien postérieure à §1.1 : elle ne doit pas être prise pour une affirmation du paragraphe. Les exemples longs sont repliables.
 
 ## 1.1 — Catégories (PDF p. 4–6 ; « p. source » 122–124)
 
@@ -14,7 +14,7 @@ Ces notes suivent **l’ordre du texte**. Dans chaque passage, **Papier** résum
 
 **Intuition.** Les objets sont ce qu’on étudie ; les flèches disent quelles comparaisons sont autorisées. Une même application d’ensembles peut être ou ne pas être un morphisme suivant la catégorie choisie.
 
-**Exemples.** Dans $\mathbf{Set}$, les flèches sont les applications ; dans $\mathbf{Ab}$, les homomorphismes de groupes abéliens ; dans $R\text{-}\mathbf{Mod}$, les applications $R$-linéaires. La composition ordinaire et les identités satisfont les axiomes.
+**Exemples.** Dans $\mathbf{Set}$, les flèches sont les applications ; dans $\mathbf{Ab}$, les homomorphismes de groupes abéliens ; dans $R\text{-}\mathbf{Mod}$, les applications $R$-linéaires. La composition ordinaire et les identités satisfont les axiomes. Les [modules et la torsion](#annexe-modules) sont repris en annexe.
 
 **Aluffi/Hatcher.** Aluffi donne le réflexe de définir une construction par ses flèches, plutôt que par une recette sur les éléments. Chez Hatcher, les groupes de chaînes et les applications de bord vivent dans $\mathbf{Ab}$ ; la même langue catégorique pourra donc organiser les complexes et les suites exactes.
 
@@ -33,7 +33,7 @@ La composition y est inversée : la flèche qui se lit $A\to B$ dans $\mathcal C
 
 **Exemples.** Mono ↔ épi ; sous-objet $B\hookrightarrow A$ ↔ quotient $A\twoheadrightarrow Q$ ; produit ↔ coproduit. La catégorie duale est une construction formelle : un morphisme de $\mathcal C^{\mathrm{op}}$ n’est pas forcément la fonction inverse d’un morphisme de $\mathcal C$.
 
-**Digression discutée.** Pour un faisceau $\mathcal F$, l’inclusion $V\hookrightarrow U$ d’ouverts donne une restriction $\mathcal F(U)\to\mathcal F(V)$. C’est un exemple concret de flèches qui changent de sens ; la définition des foncteurs contravariants viendra en §1.2.
+**Digression discutée.** Pour un faisceau $\mathcal F$, l’inclusion $V\hookrightarrow U$ d’ouverts donne une restriction $\mathcal F(U)\to\mathcal F(V)$. C’est un exemple concret de flèches qui changent de sens ; la définition des foncteurs contravariants viendra en §1.2. L’[annexe sur les faisceaux et les sections](#annexe-faisceaux) détaille cet exemple.
 
 ### 3. Monomorphismes, épimorphismes, inverses et isomorphismes (PDF p. 5 ; « p. source » 123)
 
@@ -149,7 +149,7 @@ $$
 \check C^1(\mathcal U,\mathcal F)=\prod_{i<j}\mathcal F(U_i\cap U_j).
 $$
 
-Une cochaîne est une **famille de sections** : sur chaque ouvert, puis sur chaque intersection double. Ce sont précisément des produits dans $\mathbf{Ab}$. La notation $\prod$ ne signifie ni multiplication des fonctions ni somme directe : on garde une coordonnée pour chaque indice, même si le recouvrement est infini.
+Une cochaîne est une **famille de sections** : sur chaque ouvert, puis sur chaque intersection double. Ce sont précisément des produits dans $\mathbf{Ab}$. La notation $\prod$ ne signifie ni multiplication des fonctions ni somme directe : on garde une coordonnée pour chaque indice, même si le recouvrement est infini. Le [complexe de Čech](#annexe-cech) et ses [exercices](#exercices-cech) poursuivent ce calcul.
 
 </details>
 
@@ -171,9 +171,16 @@ est bijective. Une famille $g_i:A_i\to B$ donne donc un unique $g:S\to B$. Le pa
 
 ---
 
-## Digressions travaillées qui éclairent §1.1, sans appartenir à §1.1
+## Pour continuer la lecture
 
-Ces notes sont conservées ici parce que la lecture des **modules**, des **produits** et de la phrase d’introduction de Tôhoku les a suscitées. Les sections du papier qui développent réellement les foncteurs, catégories abéliennes et faisceaux viennent plus tard (notamment §1.2, §1.4, chapitre III). Dans l’introduction (PDF p. 2 ; « p. source » 119), Grothendieck annonce l’idée d’un cadre commun pour la cohomologie des faisceaux et les foncteurs dérivés de foncteurs de modules ; ce n’est pas une définition de §1.1.
+La prochaine entrée sera **§1.2, Foncteurs** (PDF p. 6 et suivantes). Pour chaque nouveau paragraphe, garder le même ordre : référence PDF et « p. source » ; **Papier** ; **Intuition** ; **Exemple** ; **Aluffi/Hatcher** ; puis **Digression discutée** si utile. Ajouter un calcul ou un contre-exemple dans un `<details>` lorsque son développement coupe le fil du texte. Les anticipations des annexes pourront être reliées à leurs sections lorsqu’elles seront réellement étudiées, sans réécrire §1.1 comme si Grothendieck y avait déjà fait la cohomologie de Čech.
+
+## Annexes
+
+Ces développements sont regroupés par thème jusqu’à la cohomologie de Čech, avec les exercices à la fin. La lecture des **modules**, des **produits** et de la phrase d’introduction de Tôhoku les a suscités, mais ils ne font pas partie de §1.1. Les sections du papier qui développent réellement les foncteurs, catégories abéliennes et faisceaux viennent plus tard (notamment §1.2, §1.4, chapitre III). Dans l’introduction (PDF p. 2 ; « p. source » 119), Grothendieck annonce l’idée d’un cadre commun pour la cohomologie des faisceaux et les foncteurs dérivés de foncteurs de modules ; ce n’est pas une définition de §1.1.
+
+<a id="annexe-modules"></a>
+### Modules et torsion
 
 <details>
 <summary>Modules, torsion et motivation topologique</summary>
@@ -188,6 +195,9 @@ Dans notre digression sur les rotations, l’angle $\mathbb R/2\pi\mathbb Z$ est
 
 </details>
 
+<a id="annexe-faisceaux"></a>
+### Faisceaux et sections
+
 <details>
 <summary>Faisceaux, sections et l’exemple des fonctions lisses</summary>
 
@@ -198,6 +208,9 @@ Pour $\mathcal C^\infty$, $\mathcal C^\infty(U)$ est un groupe abélien par $(f+
 Pour le faisceau $\underline{\mathbb Z}$, une section est une fonction localement constante $U\to\mathbb Z$. Comme $\mathbb Z$ est discret, sur un **ouvert connexe** toute telle fonction est constante, d’où $\underline{\mathbb Z}(U)\cong\mathbb Z$. Sur deux composantes connexes, elle peut prendre deux entiers indépendants : c’est le point qui distingue les deux groupes de cochaînes dans [l’exercice 3](#exercice-cech-3).
 
 </details>
+
+<a id="annexe-cech"></a>
+### Cohomologie des faisceaux et de Čech
 
 <details>
 <summary>Cohomologie des faisceaux et logarithme : localement possible, globalement obstrué</summary>
@@ -264,18 +277,45 @@ $$
 
 **Précaution.** $\check H^n(\mathcal U,\mathcal F)$ est la cohomologie d’un **recouvrement fixé**. Son identification à $H^n(X,\mathcal F)$ demande un passage aux recouvrements ou des hypothèses adaptées, par exemple un recouvrement acyclique pour le faisceau considéré. La comparaison apparaît plus loin dans Tôhoku, au §3.8 (table des matières, PDF p. 3–4), pas en §1.1.
 
-Les calculs de base sont numérotés dans la [digression d’exercices](#exercices-cech) : deux recouvrements sans classe de degré 1, puis le cercle.
+Les calculs de base sont numérotés dans les [exercices de Čech](#exercices-cech) : deux recouvrements sans classe de degré 1, puis le cercle.
+
+</details>
+
+<details>
+<summary>Après le cercle : le tore et de Rham</summary>
+
+**Cercle.** Le calcul complet est dans [l’exercice 3](#exercice-cech-3). Il montre pourquoi deux groupes de cochaînes $\mathbb Z^2$ donnent $H^0\cong\mathbb Z$ et $H^1\cong\mathbb Z$ pour le faisceau constant, avec deux significations différentes.
+
+**Tore.** $T^2=S^1\times S^1$ a deux directions de boucles indépendantes. Pour le faisceau constant,
+
+$$
+H^0(T^2,\underline{\mathbb Z})\cong\mathbb Z,
+\qquad H^1(T^2,\underline{\mathbb Z})\cong\mathbb Z^2,
+\qquad H^2(T^2,\underline{\mathbb Z})\cong\mathbb Z.
+$$
+
+Les deux générateurs de $H^1$ évaluent les tours horizontal et vertical ; $H^2$ porte la classe de surface orientée. Pour calculer rigoureusement ces groupes, on peut prendre un bon recouvrement et son complexe de Čech, ou utiliser le complexe cellulaire de Hatcher : un sommet, deux arêtes, une 2-cellule, avec différentielles cellulaires nulles. Sur un espace aussi raisonnable que le tore, la cohomologie cellulaire à coefficients $\mathbb Z$ s’identifie à celle du faisceau constant. Le recouvrement par produits $U_i\times U_j$ de deux arcs du cercle donne bien des **patchs ouverts 2D**, pas les deux boucles fondamentales ; ses intersections peuvent être déconnectées. On ne déduit donc pas les trois groupes du tore en recopiant sans calcul la petite matrice $\mathbb Z^2\to\mathbb Z^2$ du cercle.
+
+En de Rham, les classes réelles correspondantes sont $[d\theta]$, $[d\varphi]$ en degré 1 et $[d\theta\wedge d\varphi]$ en degré 2. Les intégrales de $d\theta$ et $d\varphi$ le long des deux boucles distinguent leurs directions. Cela rapproche Čech du couple « cohomologie × homologie → période » et de Stokes discuté à propos de Hatcher.
 
 </details>
 
 <a id="exercices-cech"></a>
-### Exercices faits à la main — de l’intervalle au cercle
+### Exercices de Čech — de l’intervalle au cercle
 
 **Statut de cette section.** Ce sont tes calculs préparatoires de cohomologie de Čech avec $\underline{\mathbb Z}$, et non des exercices ni des résultats énoncés par Grothendieck en §1.1. Je garde séparées **ta démarche** et les **précisions apportées ensuite**. Les deux premiers calculs n’ont pas de classe de degré 1 ; le troisième montre ce qui change pour le cercle, lorsque l’intersection de deux ouverts a deux composantes.
 
 **Parcours.** [1. Intervalle, deux ouverts](#exercice-cech-1) · [2. Droite réelle, trois ouverts](#exercice-cech-2) · [3. Cercle, deux ouverts](#exercice-cech-3). Les trois calculs partent des définitions ; les précisions ajoutées après coup sont signalées dans chacun.
 
 **Ce que la comparaison fait voir.** Les trois espaces sont connexes, d’où $H^0\cong\mathbb Z$ dans chacun. Les deux premiers donnent $H^1=0$, tandis que [le cercle](#exercice-cech-3) laisse un $H^1\cong\mathbb Z$ : le quotient y garde une différence entre les deux composantes de l’intersection que les cobords diagonaux ne peuvent pas effacer.
+
+**Règle de travail pour les prochains exercices.** Tu souhaites volontairement partir des définitions et justifier chaque identification. Pour chaque degré $n$, écrire d’abord les sous-groupes **concrets** $\ker\delta^n$ et $\operatorname{im}\delta^{n-1}$, justifier l’image quand elle est annoncée égale à tout un groupe, puis former
+
+$$
+H^n=\ker\delta^n/\operatorname{im}\delta^{n-1}.
+$$
+
+Ce n’est qu’après le quotient qu’on identifie son type d’isomorphisme, par exemple $\mathbb Z^r$. En degré 0, on pose $\operatorname{im}\delta^{-1}=0$. Cette discipline conservera la différence entre un noyau situé dans un groupe précis et le groupe abstrait qui lui est isomorphe.
 
 <a id="exercice-cech-1"></a>
 <details>
@@ -501,34 +541,3 @@ L’application $(p,q)\mapsto q-p$ est surjective et son noyau est cette diagona
 **Lien avec la cohomologie du faisceau.** Les ouverts et les deux composantes de leur intersection sont contractiles. Pour $\underline{\mathbb Z}$, ce recouvrement est acyclique ; les groupes de Čech obtenus représentent donc $H^0(S^1,\underline{\mathbb Z})$ et $H^1(S^1,\underline{\mathbb Z})$.
 
 </details>
-
-**Règle de travail pour les prochains exercices.** Tu souhaites volontairement partir des définitions et justifier chaque identification. Pour chaque degré $n$, écrire d’abord les sous-groupes **concrets** $\ker\delta^n$ et $\operatorname{im}\delta^{n-1}$, justifier l’image quand elle est annoncée égale à tout un groupe, puis former
-
-$$
-H^n=\ker\delta^n/\operatorname{im}\delta^{n-1}.
-$$
-
-Ce n’est qu’après le quotient qu’on identifie son type d’isomorphisme, par exemple $\mathbb Z^r$. En degré 0, on pose $\operatorname{im}\delta^{-1}=0$. Cette discipline conservera la différence entre un noyau situé dans un groupe précis et le groupe abstrait qui lui est isomorphe.
-
-<details>
-<summary>Après le cercle : le tore et de Rham</summary>
-
-**Cercle.** Le calcul complet est dans [l’exercice 3](#exercice-cech-3). Il montre pourquoi deux groupes de cochaînes $\mathbb Z^2$ donnent $H^0\cong\mathbb Z$ et $H^1\cong\mathbb Z$ pour le faisceau constant, avec deux significations différentes.
-
-**Tore.** $T^2=S^1\times S^1$ a deux directions de boucles indépendantes. Pour le faisceau constant,
-
-$$
-H^0(T^2,\underline{\mathbb Z})\cong\mathbb Z,
-\qquad H^1(T^2,\underline{\mathbb Z})\cong\mathbb Z^2,
-\qquad H^2(T^2,\underline{\mathbb Z})\cong\mathbb Z.
-$$
-
-Les deux générateurs de $H^1$ évaluent les tours horizontal et vertical ; $H^2$ porte la classe de surface orientée. Pour calculer rigoureusement ces groupes, on peut prendre un bon recouvrement et son complexe de Čech, ou utiliser le complexe cellulaire de Hatcher : un sommet, deux arêtes, une 2-cellule, avec différentielles cellulaires nulles. Sur un espace aussi raisonnable que le tore, la cohomologie cellulaire à coefficients $\mathbb Z$ s’identifie à celle du faisceau constant. Le recouvrement par produits $U_i\times U_j$ de deux arcs du cercle donne bien des **patchs ouverts 2D**, pas les deux boucles fondamentales ; ses intersections peuvent être déconnectées. On ne déduit donc pas les trois groupes du tore en recopiant sans calcul la petite matrice $\mathbb Z^2\to\mathbb Z^2$ du cercle.
-
-En de Rham, les classes réelles correspondantes sont $[d\theta]$, $[d\varphi]$ en degré 1 et $[d\theta\wedge d\varphi]$ en degré 2. Les intégrales de $d\theta$ et $d\varphi$ le long des deux boucles distinguent leurs directions. Cela rapproche Čech du couple « cohomologie × homologie → période » et de Stokes discuté à propos de Hatcher.
-
-</details>
-
-## Pour continuer la lecture
-
-La prochaine entrée sera **§1.2, Foncteurs** (PDF p. 6 et suivantes). Pour chaque nouveau paragraphe, garder le même ordre : référence PDF et « p. source » ; **Papier** ; **Intuition** ; **Exemple** ; **Aluffi/Hatcher** ; puis **Digression discutée** si utile. Ajouter un calcul ou un contre-exemple dans un `<details>` lorsque son développement coupe le fil du texte. Les anticipations ci-dessus pourront être reliées à leurs sections lorsqu’elles seront réellement étudiées, sans réécrire §1.1 comme si Grothendieck y avait déjà fait la cohomologie de Čech.
