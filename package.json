@@ -1,0 +1,11 @@
+{
+  "name": "grothendieck-tohoku-notes-site",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-site.cjs"
+  },
+  "dependencies": {
+    "markdown-it": "15.0.2",
+    "markdown-it-mathjax": "2.0.0"
+  }
+}
