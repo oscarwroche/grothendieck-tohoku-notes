@@ -133,7 +133,8 @@ const page = `<!doctype html>
     function revealHash(hash) {
       const target = document.getElementById(hash.slice(1));
       if (!target) return null;
-      const detail = target.tagName === 'DETAILS' ? target : target.nextElementSibling?.tagName === 'DETAILS' ? target.nextElementSibling : null;
+      const anchorBlock = target.tagName === 'A' && target.parentElement?.tagName === 'P' ? target.parentElement : target;
+      const detail = anchorBlock.tagName === 'DETAILS' ? anchorBlock : anchorBlock.nextElementSibling?.tagName === 'DETAILS' ? anchorBlock.nextElementSibling : null;
       if (detail) detail.open = true;
       return detail || target;
     }
