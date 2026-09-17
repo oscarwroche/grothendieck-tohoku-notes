@@ -263,6 +263,8 @@ $$
 =(s_2-s_1)-(s_2-s_0)+(s_1-s_0)=0.
 $$
 
+**Mémo pour calculer le cobord.** Sur l’intersection choisie, enlever un indice à la fois, de gauche à droite, avec les signes $+,-,+,\ldots$, puis restreindre chaque section à cette même intersection avant d’additionner. Restreindre une section qui est une fonction conserve ses valeurs et réduit son domaine. Pour des sections constantes, les restrictions gardent donc les mêmes valeurs entières. Les étiquettes des ouverts et le degré jouent des rôles différents : $\delta^0$ produit une section sur chaque intersection double, quelles que soient ses étiquettes ; $\delta^1$ sur chaque intersection triple. L’[exercice 4](#exercice-cech-4) distingue ces deux étages quand l’intersection triple est vide.
+
 En tout degré, chaque restriction apparaît deux fois avec signes opposés, donc $\delta^{n+1}\delta^n=0$. Le quotient est
 
 $$
@@ -277,7 +279,7 @@ $$
 
 **Précaution.** $\check H^n(\mathcal U,\mathcal F)$ est la cohomologie d’un **recouvrement fixé**. Son identification à $H^n(X,\mathcal F)$ demande un passage aux recouvrements ou des hypothèses adaptées, par exemple un recouvrement acyclique pour le faisceau considéré. La comparaison apparaît plus loin dans Tôhoku, au §3.8 (table des matières, PDF p. 3–4), pas en §1.1.
 
-Les calculs de base sont numérotés dans les [exercices de Čech](#exercices-cech) : deux recouvrements sans classe de degré 1, puis le cercle.
+Les calculs de base sont numérotés dans les [exercices de Čech](#exercices-cech) : deux recouvrements sans classe de degré 1, puis le cercle avec deux et trois ouverts.
 
 </details>
 
@@ -303,11 +305,11 @@ En de Rham, les classes réelles correspondantes sont $[d\theta]$, $[d\varphi]$ 
 <a id="exercices-cech"></a>
 ### Exercices de Čech — de l’intervalle au cercle
 
-**Statut de cette section.** Ce sont tes calculs préparatoires de cohomologie de Čech avec $\underline{\mathbb Z}$, et non des exercices ni des résultats énoncés par Grothendieck en §1.1. Je garde séparées **ta démarche** et les **précisions apportées ensuite**. Les deux premiers calculs n’ont pas de classe de degré 1 ; le troisième montre ce qui change pour le cercle, lorsque l’intersection de deux ouverts a deux composantes.
+**Statut de cette section.** Ce sont tes calculs préparatoires de cohomologie de Čech avec $\underline{\mathbb Z}$, et non des exercices ni des résultats énoncés par Grothendieck en §1.1. Je garde séparées **ta démarche** et les **précisions apportées ensuite**. Les deux premiers calculs n’ont pas de classe de degré 1 ; le troisième montre ce qui change pour le cercle, lorsque l’intersection de deux ouverts a deux composantes. Le quatrième retrouve la cohomologie du cercle avec trois ouverts et consolide le passage d’une image paramétrée à un quotient explicite.
 
-**Parcours.** [1. Intervalle, deux ouverts](#exercice-cech-1) · [2. Droite réelle, trois ouverts](#exercice-cech-2) · [3. Cercle, deux ouverts](#exercice-cech-3). Les trois calculs partent des définitions ; les précisions ajoutées après coup sont signalées dans chacun.
+**Parcours.** [1. Intervalle, deux ouverts](#exercice-cech-1) · [2. Droite réelle, trois ouverts](#exercice-cech-2) · [3. Cercle, deux ouverts](#exercice-cech-3) · [4. Cercle, trois ouverts et quotient par les cobords](#exercice-cech-4). Les quatre calculs partent des définitions ; les précisions ajoutées après coup sont signalées dans chacun.
 
-**Ce que la comparaison fait voir.** Les trois espaces sont connexes, d’où $H^0\cong\mathbb Z$ dans chacun. Les deux premiers donnent $H^1=0$, tandis que [le cercle](#exercice-cech-3) laisse un $H^1\cong\mathbb Z$ : le quotient y garde une différence entre les deux composantes de l’intersection que les cobords diagonaux ne peuvent pas effacer.
+**Ce que la comparaison fait voir.** Les espaces étudiés sont connexes, d’où $H^0\cong\mathbb Z$ dans chacun. Les deux premiers calculs donnent $H^1=0$, tandis que le cercle laisse un $H^1\cong\mathbb Z$. Avec [deux ouverts](#exercice-cech-3), le quotient conserve une différence entre les composantes de l’intersection ; avec [trois ouverts](#exercice-cech-4), il conserve un défaut de compatibilité autour du cycle des intersections doubles.
 
 **Règle de travail pour les prochains exercices.** Tu souhaites volontairement partir des définitions et justifier chaque identification. Pour chaque degré $n$, écrire d’abord les sous-groupes **concrets** $\ker\delta^n$ et $\operatorname{im}\delta^{n-1}$, justifier l’image quand elle est annoncée égale à tout un groupe, puis former
 
@@ -539,5 +541,145 @@ L’application $(p,q)\mapsto q-p$ est surjective et son noyau est cette diagona
 **Acquis conceptuels.** Les deux résultats sont isomorphes à $\mathbb Z$, mais $H^0$ vient de la compatibilité des sections locales, tandis que $H^1$ conserve la différence entre $V^+$ et $V^-$ après quotient par les cobords. C’est ce second $\mathbb Z$ qui détecte le trou du cercle. L’exercice distingue aussi la section $s_i$ de sa valeur $a_i$, l’indice $01$ des composantes de $U_{01}$, et les cochaînes $(p,q)$ des seuls cobords $(n,n)$.
 
 **Lien avec la cohomologie du faisceau.** Les ouverts et les deux composantes de leur intersection sont contractiles. Pour $\underline{\mathbb Z}$, ce recouvrement est acyclique ; les groupes de Čech obtenus représentent donc $H^0(S^1,\underline{\mathbb Z})$ et $H^1(S^1,\underline{\mathbb Z})$.
+
+</details>
+
+<a id="exercice-cech-4"></a>
+<details>
+<summary>Exercice 4 — le cercle avec trois ouverts ; image paramétrée et quotient par les cobords</summary>
+
+**Énoncé travaillé.** Sur $X=S^1=\{(\xi,\eta)\in\mathbb R^2:\xi^2+\eta^2=1\}$, avec $\mathcal F=\underline{\mathbb Z}$, on prend
+
+$$
+\begin{aligned}
+U_0&=\{(\xi,\eta)\in S^1:\xi>0\},\\
+U_1&=\{(\xi,\eta)\in S^1:-\xi+\sqrt3\,\eta>0\},\\
+U_2&=\{(\xi,\eta)\in S^1:-\xi-\sqrt3\,\eta>0\}.
+\end{aligned}
+$$
+
+Le travail demandé était : dessiner le recouvrement et son nerf ; construire les cochaînes et le cobord ; calculer le noyau et caractériser l’image de $\delta^0$ dans les deux sens ; identifier les quotients par des applications explicites, puis comparer avec l’exercice 3. Les coordonnées géométriques sont ici notées $\xi,\eta$ pour les distinguer des coordonnées des cochaînes utilisées plus bas.
+
+**Ta démarche et les corrections de rédaction.** Les photos montrent le nerf triangulaire, les groupes $\check C^0\cong\mathbb Z^3$ et $\check C^1\cong\mathbb Z^3$, la bonne matrice de $\delta^0$ dans l’ordre $(01,02,12)$, puis le noyau diagonal. Tu as ensuite paramétré l’image sous la forme $(u+v,u,v)$ et écrit $\check H^1=\mathbb Z^3/\operatorname{im}\delta^0$. Les points complétés ensemble sont le suivi de l’ordre des coordonnées, les témoins pour les deux inclusions, la construction de $q$ et la justification de l’isomorphisme du quotient. Le passage initial à la formule sur l’intersection triple concernait $\delta^1$, et non $\delta^0$.
+
+**1. Géométrie et groupes de sections.** Les trois ouverts sont des demi-cercles centrés dans des directions espacées de $120^\circ$. Ils couvrent $S^1$ : les trois formes $2\xi$, $-\xi+\sqrt3\,\eta$ et $-\xi-\sqrt3\,\eta$ ont une somme nulle. Si un point n’appartenait à aucun ouvert, elles seraient toutes négatives ou nulles ; leur somme nulle imposerait qu’elles soient toutes nulles, donc $\xi=\eta=0$, ce qui est impossible sur $S^1$. Une intersection triple imposerait au contraire trois valeurs strictement positives, également incompatibles avec cette somme nulle. Chaque intersection double est un arc ouvert non vide, d’angle $60^\circ$. Le nerf a donc trois sommets, trois arêtes et aucune face triangulaire.
+
+Sur chaque ouvert et chaque intersection double, une section localement constante est constante. L’identification à $\mathbb Z$ prend sa valeur ; son inverse associe à un entier la fonction constante de cette valeur. En revanche, $\underline{\mathbb Z}(\varnothing)=0$. Ainsi,
+
+$$
+\check C^0\cong\mathbb Z^3,\qquad
+\check C^1\cong\mathbb Z^3,\qquad
+\check C^2=0.
+$$
+
+**2. Cobord et ordre des coordonnées.** Une $0$-cochaîne est une famille de sections $(s_0,s_1,s_2)$, identifiée à ses valeurs $(a_0,a_1,a_2)$. Sur $U_{ij}=U_i\cap U_j$,
+
+$$
+(\delta^0s)_{ij}=s_j|_{U_{ij}}-s_i|_{U_{ij}}.
+$$
+
+Les restrictions conservent les valeurs constantes. Dans l’ordre initial $(01,02,12)$, les trois coordonnées sont $(a_1-a_0,a_2-a_0,a_2-a_1)$, avec la matrice
+
+$$
+\begin{pmatrix}
+-1&1&0\\
+-1&0&1\\
+0&-1&1
+\end{pmatrix}.
+$$
+
+Pour conserver ta paramétrisation $(u+v,u,v)$, on utilise **à partir d’ici l’ordre $(02,01,12)$**, obtenu en échangeant les deux premières coordonnées :
+
+$$
+\boxed{\delta^0(a_0,a_1,a_2)=(a_2-a_0,\;a_1-a_0,\;a_2-a_1).}
+$$
+
+L’intersection triple est vide, donc $\delta^1:\mathbb Z^3\to0$ est l’application nulle. Son **image** est $0$, mais son **noyau** est tout $\mathbb Z^3$. Le complexe est
+
+$$
+0\longrightarrow\mathbb Z^3
+\xrightarrow{\delta^0}\mathbb Z^3
+\xrightarrow{\delta^1}0.
+$$
+
+**3. Noyau et image de $\delta^0$.** Pour tout $(a_0,a_1,a_2)\in\mathbb Z^3$, l’égalité $\delta^0(a_0,a_1,a_2)=0$ équivaut aux trois égalités $a_2-a_0=0$, $a_1-a_0=0$, $a_2-a_1=0$. Donc
+
+$$
+\ker\delta^0=\{(a,a,a):a\in\mathbb Z\}.
+$$
+
+L’isomorphisme $\mathbb Z\to\ker\delta^0$ envoie $a$ sur $(a,a,a)$ ; son inverse prend la première coordonnée. Comme $\operatorname{im}\delta^{-1}=0$, cela donne $\check H^0\cong\mathbb Z$.
+
+Posons maintenant $K=\operatorname{im}\delta^0$. Si un triplet est l’image de $(a_0,a_1,a_2)$, prenons $u=a_1-a_0$ et $v=a_2-a_1$ : ce triplet est $(u+v,u,v)$. Réciproquement, pour tous $u,v\in\mathbb Z$,
+
+$$
+\delta^0(0,u,u+v)=(u+v,u,v).
+$$
+
+Les deux inclusions sont ainsi justifiées :
+
+$$
+\boxed{K=\operatorname{im}\delta^0=\{(u+v,u,v):u,v\in\mathbb Z\}.}
+$$
+
+Cette paramétrisation est l’application additive $\varphi:\mathbb Z^2\to\mathbb Z^3$, $\varphi(u,v)=(u+v,u,v)$, avec $K=\operatorname{im}\varphi$. Elle est un isomorphisme sur son image : l’inverse $K\to\mathbb Z^2$ prend les deuxième et troisième coordonnées.
+
+**4. Construire une application dont le noyau est $K$.** La paramétrisation ne détermine pas une fonction unique ; elle permet d’en chercher une, puis de vérifier son noyau. Pour une application additive $q(x,y,z)=Ax+By+Cz$, demander $q(\varphi(u,v))=0$ pour tous $u,v$ impose
+
+$$
+(A+B)u+(A+C)v=0.
+$$
+
+En prenant $(u,v)=(1,0)$ puis $(0,1)$, on obtient $B=C=-A$. On choisit $A=1$, donc
+
+$$
+q:\mathbb Z^3\longrightarrow\mathbb Z,\qquad q(x,y,z)=x-y-z.
+$$
+
+Il reste à vérifier **l’égalité** du noyau et de $K$, pas seulement une inclusion :
+
+- Si $(x,y,z)\in K$, il existe $u,v\in\mathbb Z$ tels que $(x,y,z)=(u+v,u,v)$ ; alors $q(x,y,z)=(u+v)-u-v=0$.
+- Si $q(x,y,z)=0$, alors $x=y+z$. Les entiers $u=y$ et $v=z$ fournissent les témoins : $(x,y,z)=(u+v,u,v)=\varphi(u,v)$, donc $(x,y,z)\in K$.
+
+Ainsi $\ker q=K$. Pour tout entier $m$, $q(m,0,0)=m$, donc $q$ est surjective.
+
+**5. Identifier le quotient.** Puisque $\ker\delta^1=\mathbb Z^3$,
+
+$$
+\check H^1=\frac{\mathbb Z^3}{K}.
+$$
+
+Le premier théorème d’isomorphisme donne $\mathbb Z^3/\ker q\cong\operatorname{im}q$. Ici, l’isomorphisme est explicitement
+
+$$
+\bar q:\mathbb Z^3/K\longrightarrow\mathbb Z,\qquad
+[(x,y,z)]\longmapsto x-y-z.
+$$
+
+Il est **bien défini** : si deux représentants diffèrent d’un élément de $K=\ker q$, leurs valeurs par $q$ sont égales. Il est **additif**, car $\bar q([b]+[c])=q(b+c)=q(b)+q(c)$. Il est **injectif** : si $\bar q([b])=0$, alors $b\in\ker q=K$, donc $[b]=[0]$. Il est **surjectif** : l’entier $m$ est l’image de la classe de $(m,0,0)$. Son inverse est $m\mapsto[(m,0,0)]$. Par conséquent,
+
+$$
+\boxed{\check H^0\cong\mathbb Z,\qquad \check H^1\cong\mathbb Z.}
+$$
+
+**« Modulo les cobords », concrètement.** Ici toutes les $1$-cochaînes sont des cocycles, car $\delta^1=0$. Deux triplets représentent la même classe si leur différence appartient à $K$. Par exemple, $(6,2,3)$ et $(1,0,0)$ sont équivalents : leur différence est $(5,2,3)=\varphi(2,3)$. En revanche, $(2,0,0)$ et $(1,0,0)$ ne le sont pas, car leur différence a une valeur non nulle par $q$. La classe d’un triplet est l’ensemble
+
+$$
+[(x,y,z)]=\{(x+u+v,y+u,z+v):u,v\in\mathbb Z\}.
+$$
+
+On peut aussi voir directement quel représentant reste après quotient :
+
+$$
+(x,y,z)=(y+z,y,z)+(x-y-z,0,0).
+$$
+
+Le premier terme appartient à $K$, donc $[(x,y,z)]=[(x-y-z,0,0)]$. Ce représentant est unique : si $(m-m',0,0)\in K$, l’écriture $(m-m',0,0)=(u+v,u,v)$ impose $u=v=0$, puis $m=m'$.
+
+**Difficulté instructive : rang et quotient sur $\mathbb Z$.** Le noyau de $\delta^0$ est isomorphe à $\mathbb Z$ ; le noyau de $q$, égal à l’image de $\delta^0$, est isomorphe à $\mathbb Z^2$ ; le quotient $\mathbb Z^3/\ker q$ est isomorphe à $\mathbb Z$. Ces trois objets sont différents. Ici on parle de rang de groupes abéliens libres, pas de dimension d’espaces vectoriels. Le comptage des rangs ne détermine pas à lui seul un quotient : $\mathbb Z/2\mathbb Z$ a du rang nul sans être trivial. C’est l’application $q$, avec son noyau exact et sa surjectivité, qui justifie le résultat et exclut une torsion supplémentaire.
+
+**Interprétation et comparaison.** Dans l’ordre $(02,01,12)$, un triplet $(x,y,z)$ prescrit les différences sur ces trois intersections. S’il vient de valeurs $a_0,a_1,a_2$ choisies sur les ouverts, les différences satisfont $x=y+z$. L’entier $q(x,y,z)=x-y-z$ mesure le défaut de cette relation ; ajouter un cobord ne le change pas. Une classe non nulle est donc une obstruction à réaliser ces différences par des valeurs sur les ouverts. Le groupe $\check H^1\cong\mathbb Z$ signifie que toutes les classes sont des multiples entiers de $[(1,0,0)]$. Dans l’exercice 3, l’obstruction apparaissait entre deux composantes d’une intersection ; ici, elle apparaît autour du cycle des trois intersections connexes. Les ouverts et leurs intersections non vides sont contractiles : ce recouvrement est acyclique pour $\underline{\mathbb Z}$ et calcule la cohomologie du faisceau constant sur le cercle. On a calculé la **cohomologie**, et non un complexe d’homologie.
+
+**Prolongement proposé, non traité dans les photos ni corrigé ici.** Remplacer le cercle par $Y=(-2,2)$, avec $V_0=(-2,1)$, $V_1=(-1,2)$ et $V_2=(-\tfrac12,\tfrac12)$. L’intersection triple est maintenant non vide. Écrire $\delta^1$, vérifier $\delta^1\delta^0=0$, puis calculer $\check H^1$ et comparer avec le cercle. L’énoncé est conservé sans solution.
 
 </details>
