@@ -173,11 +173,132 @@ est bijective. Une famille $g_i:A_i\to B$ donne donc un unique $g:S\to B$. Le pa
 
 ## Pour continuer la lecture
 
-La prochaine entrée sera **§1.2, Foncteurs** (PDF p. 6 et suivantes). Pour chaque nouveau paragraphe, garder le même ordre : référence PDF et « p. source » ; **Papier** ; **Intuition** ; **Exemple** ; **Aluffi/Hatcher** ; puis **Digression discutée** si utile. Ajouter un calcul ou un contre-exemple dans un `<details>` lorsque son développement coupe le fil du texte. Les anticipations des annexes pourront être reliées à leurs sections lorsqu’elles seront réellement étudiées, sans réécrire §1.1 comme si Grothendieck y avait déjà fait la cohomologie de Čech.
+La prochaine entrée sera **§1.2, Foncteurs** (PDF p. 6 et suivantes). Pour chaque nouveau paragraphe, garder le même ordre : référence PDF et « p. source » ; **Papier** ; **Intuition** ; **Exemple** ; **Aluffi/Hatcher** ; puis **Digression discutée** si utile. Ajouter un calcul ou un contre-exemple dans un `<details>` lorsque son développement coupe le fil du texte. La [méthode pour définir et vérifier un foncteur](#methode-foncteur) servira pour les premiers exercices. Les anticipations des annexes pourront être reliées à leurs sections lorsqu’elles seront réellement étudiées, sans réécrire §1.1 comme si Grothendieck y avait déjà fait la cohomologie de Čech.
 
 ## Annexes
 
-Ces développements sont regroupés par thème jusqu’à la cohomologie de Čech, avec les exercices à la fin. La lecture des **modules**, des **produits** et de la phrase d’introduction de Tôhoku les a suscités, mais ils ne font pas partie de §1.1. Les sections du papier qui développent réellement les foncteurs, catégories abéliennes et faisceaux viennent plus tard (notamment §1.2, §1.4, chapitre III). Dans l’introduction (PDF p. 2 ; « p. source » 119), Grothendieck annonce l’idée d’un cadre commun pour la cohomologie des faisceaux et les foncteurs dérivés de foncteurs de modules ; ce n’est pas une définition de §1.1.
+Ces développements sont regroupés par thème jusqu’à la cohomologie de Čech, avec les exercices à la fin. Une première partie conserve les méthodes de preuve réutilisables qui se dégagent des exercices. La lecture des **modules**, des **produits** et de la phrase d’introduction de Tôhoku a suscité les autres annexes, mais elles ne font pas partie de §1.1. Les sections du papier qui développent réellement les foncteurs, catégories abéliennes et faisceaux viennent plus tard (notamment §1.2, §1.4, chapitre III). Dans l’introduction (PDF p. 2 ; « p. source » 119), Grothendieck annonce l’idée d’un cadre commun pour la cohomologie des faisceaux et les foncteurs dérivés de foncteurs de modules ; ce n’est pas une définition de §1.1.
+
+<a id="methodes-preuve"></a>
+### Méthodes de calcul et de preuve
+
+Ces fiches décrivent une démarche à appliquer avant de chercher le résultat particulier. Elles ne remplacent pas les définitions : elles indiquent quelles données écrire, quels quantificateurs vérifier et comment justifier les identifications rencontrées dans les exercices.
+
+<a id="methode-foncteur"></a>
+<details>
+<summary>Définir et vérifier un foncteur</summary>
+
+Pour construire un foncteur $F:\mathcal C\to\mathcal D$, procéder dans cet ordre.
+
+**1. Fixer la source et la cible.** Écrire les deux catégories, donc le type de leurs objets et de leurs morphismes. Cette étape détermine ce que devra signifier « $F(u)$ est bien un morphisme de $\mathcal D$ ».
+
+**2. Définir l’action sur les objets.** Pour chaque objet $A$ de $\mathcal C$, donner un objet $F(A)$ de $\mathcal D$. Il faut vérifier que la construction satisfait bien les conditions imposées aux objets de $\mathcal D$.
+
+**3. Définir l’action sur les morphismes.** Prendre une flèche arbitraire
+
+$$
+u:A\longrightarrow B
+$$
+
+dans $\mathcal C$ et construire une flèche
+
+$$
+F(u):F(A)\longrightarrow F(B)
+$$
+
+dans $\mathcal D$. Écrire les domaines et codomaines avant toute formule. Vérifier ensuite que la construction est **bien définie** : elle produit réellement un morphisme de $\mathcal D$ et, si elle utilise un représentant ou un choix, elle n’en dépend pas.
+
+**4. Vérifier les identités.** Pour tout objet $A$, calculer séparément $F(1_A)$ et montrer
+
+$$
+F(1_A)=1_{F(A)}.
+$$
+
+**5. Vérifier la composition.** Pour deux flèches arbitraires composables
+
+$$
+A\overset{u}{\longrightarrow}B\overset{v}{\longrightarrow}C,
+$$
+
+comparer les deux morphismes de $F(A)$ vers $F(C)$ et prouver
+
+$$
+F(v\circ u)=F(v)\circ F(u).
+$$
+
+Une formule sur les objets ne suffit donc pas à définir un foncteur : les flèches, leur type et ces deux compatibilités font partie de la définition.
+
+**Cas contravariant.** On peut éviter de mémoriser une nouvelle définition en considérant un foncteur covariant $\mathcal C^{\mathrm{op}}\to\mathcal D$. Écrit directement sur $\mathcal C$, une flèche $u:A\to B$ donne $F(u):F(B)\to F(A)$ et, pour $A\overset{u}{\longrightarrow}B\overset{v}{\longrightarrow}C$,
+
+$$
+F(v\circ u)=F(u)\circ F(v).
+$$
+
+Le contrôle des domaines et codomaines permet de retrouver l’ordre sans l’apprendre isolément.
+
+**Gabarit de rédaction.** « Soient $\mathcal C,\mathcal D$… Pour $A\in\mathcal C$, posons… Pour $u:A\to B$, définissons… Cette flèche appartient à $\operatorname{Hom}_{\mathcal D}(F(A),F(B))$ parce que… Pour tout $A$, … ; pour $A\overset{u}{\longrightarrow}B\overset{v}{\longrightarrow}C$, … Donc $F$ est un foncteur. » Dans un exercice, remplir chaque blanc avec la construction étudiée sans annoncer à l’avance le résultat.
+
+</details>
+
+<details>
+<summary>Calculer un noyau, caractériser une image et former un quotient</summary>
+
+**Noyau.** Partir d’un élément arbitraire $x$ du groupe de départ et transformer, par équivalences justifiées, la condition $f(x)=0$ :
+
+$$
+x\in\ker f
+\iff f(x)=0
+\iff \text{conditions explicites sur }x.
+$$
+
+Le résultat doit d’abord être écrit comme un sous-groupe concret du groupe de départ. L’identification éventuelle à $\mathbb Z^r$ vient ensuite, au moyen d’un isomorphisme explicite et de son inverse.
+
+**Image.** Partir de la définition quantifiée :
+
+$$
+y\in\operatorname{im}f
+\iff \exists x\quad y=f(x).
+$$
+
+Pour obtenir une paramétrisation ou une équation, prouver les deux sens. Dans le premier, partir d’un élément $f(x)$ et extraire les paramètres ou la relation nécessaire. Dans le second, partir de paramètres arbitraires ou d’un élément satisfaisant la relation, puis construire un antécédent précis. Une simple ressemblance avec la forme attendue ne prouve qu’au mieux une inclusion.
+
+**Quotient.** Avant de simplifier $\ker g/\operatorname{im}f$, vérifier que $\operatorname{im}f\subseteq\ker g$, généralement grâce à $g\circ f=0$. Garder visibles le groupe ambiant, le sous-groupe par lequel on quotient et la relation d’équivalence :
+
+$$
+[x]=[y]\iff x-y\in\operatorname{im}f.
+$$
+
+L’[exercice 4 de Čech](#exercice-cech-4) donne un calcul complet où une image paramétrée est ensuite identifiée au noyau d’une autre application.
+
+</details>
+
+<details>
+<summary>Prouver une égalité de sous-objets et construire un isomorphisme</summary>
+
+**Égalité de sous-ensembles ou de sous-groupes.** Pour prouver $E=K$, établir séparément
+
+$$
+E\subseteq K
+\qquad\text{et}\qquad
+K\subseteq E.
+$$
+
+Dans chaque sens, commencer par « soit $x$… » et terminer par la propriété exacte qui caractérise l’ensemble d’arrivée. Si la définition contient « il existe », exhiber le témoin ; s’il faut montrer une propriété pour tout objet ou tout morphisme, introduire un élément arbitraire.
+
+**Isomorphisme.** Écrire une application $\Phi:E\to K$, puis vérifier successivement :
+
+1. qu’elle est bien définie et respecte la structure considérée ;
+2. qu’elle est injective et surjective, ou bien qu’une application inverse explicite $\Psi:K\to E$ satisfait $\Psi\Phi=1_E$ et $\Phi\Psi=1_K$.
+
+Dire seulement que deux groupes ont le même rang ne suffit pas sur $\mathbb Z$ : cela peut manquer une torsion. Pour identifier un quotient $G/K$, une méthode robuste consiste à construire un homomorphisme surjectif $q:G\to H$, à démontrer par deux inclusions que $\ker q=K$, puis à appliquer le premier théorème d’isomorphisme :
+
+$$
+G/K=G/\ker q\cong\operatorname{im}q=H.
+$$
+
+Il faut enfin préciser l’application induite sur les classes, $[x]\mapsto q(x)$, et expliquer pourquoi elle ne dépend pas du représentant.
+
+</details>
 
 <a id="annexe-modules"></a>
 ### Modules et torsion
